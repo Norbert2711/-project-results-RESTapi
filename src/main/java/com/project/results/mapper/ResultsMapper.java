@@ -30,10 +30,11 @@ public class ResultsMapper {
         );
     }
 
-    public Results mapToResultsDto(final Results results) {
-        return new Results(
+    public ResultsDto mapToResultsDto(final Results results) {
+        return new ResultsDto(
                 results.getId(),
                 results.getCop_id(),
+                results.getPlace_of_service(),
                 results.getDate(),
                 results.getTime(),
                 results.getType_of_patrol(),
@@ -53,6 +54,7 @@ public class ResultsMapper {
         return resultsList.stream()
                 .map(r -> new ResultsDto(r.getId(),
                         r.getCop_id(),
+                        r.getPlace_of_service(),
                         r.getDate(),
                         r.getTime(),
                         r.getType_of_patrol(),

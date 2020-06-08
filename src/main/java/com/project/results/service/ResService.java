@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DbService {
+public class ResService {
 
     @Autowired
     private ResultsRepository resultsRepository;
@@ -21,11 +21,10 @@ public class DbService {
 
     public Results getResultById(final Long id) {
         return resultsRepository.findById(id).orElse(null);
-
     }
 
-    public Results saveResult(final Results results) {
-        return resultsRepository.save(results);
+    public Results saveResult(final Results result) {
+        return resultsRepository.save(result);
     }
 
     public Optional<Results> getResult(final Long id) {

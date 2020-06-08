@@ -3,10 +3,8 @@ package com.project.results.domain;
 import lombok.*;
 
 
-@Setter
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 
 public class ResultsDto {
 
@@ -26,6 +24,4 @@ public class ResultsDto {
     private int arrested;
     private int kilometers_traveled;
 
-    public ResultsDto(Long id, Long cop_id, String date, String time, String type_of_patrol, int legitimated, int checked_in_the_system, int quotations, int interventions, int noticions, int mandates, int vehicle_controls, int arrested, int kilometers_traveled) {
-    }
 }

@@ -2,9 +2,6 @@ package com.project.results.domain;
 
 import lombok.*;
 
-@EqualsAndHashCode
-@ToString
-@Setter
 @Getter
 @AllArgsConstructor
 
