@@ -1,6 +1,5 @@
 package com.project.results.mapper;
 
-
 import com.project.results.domain.Results;
 import com.project.results.domain.ResultsDto;
 import org.springframework.stereotype.Component;
@@ -16,13 +15,14 @@ public class ResultsMapper {
                 resultsDto.getId(),
                 resultsDto.getCop_id(),
                 resultsDto.getDate(),
+                resultsDto.getPlace_of_service(),
                 resultsDto.getTime(),
                 resultsDto.getType_of_patrol(),
                 resultsDto.getLegitimated(),
                 resultsDto.getChecked_in_the_system(),
                 resultsDto.getQuotations(),
                 resultsDto.getInterventions(),
-                resultsDto.getNoticions(),
+                resultsDto.getNotations(),
                 resultsDto.getMandates(),
                 resultsDto.getVehicle_controls(),
                 resultsDto.getArrested(),
@@ -42,7 +42,7 @@ public class ResultsMapper {
                 results.getChecked_in_the_system(),
                 results.getQuotations(),
                 results.getInterventions(),
-                results.getNoticions(),
+                results.getNotations(),
                 results.getMandates(),
                 results.getVehicle_controls(),
                 results.getArrested(),
@@ -52,7 +52,8 @@ public class ResultsMapper {
 
     public List<ResultsDto> mapResultsDtoList(final List<Results> resultsList) {
         return resultsList.stream()
-                .map(r -> new ResultsDto(r.getId(),
+                .map(r -> new ResultsDto(
+                        r.getId(),
                         r.getCop_id(),
                         r.getPlace_of_service(),
                         r.getDate(),
@@ -62,7 +63,7 @@ public class ResultsMapper {
                         r.getChecked_in_the_system(),
                         r.getQuotations(),
                         r.getInterventions(),
-                        r.getNoticions(),
+                        r.getNotations(),
                         r.getMandates(),
                         r.getVehicle_controls(),
                         r.getArrested(),

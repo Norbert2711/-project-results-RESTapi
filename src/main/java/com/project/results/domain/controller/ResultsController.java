@@ -37,7 +37,7 @@ public class ResultsController {
         return resultsMapper.mapToResultsDto(resService.saveResult(resultsMapper.mapToResults(resultsDto)));
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "getResult")
+    @RequestMapping(method = RequestMethod.DELETE, value = "deleteResult")
     public void deleteResult(@RequestParam Long resultId) {
         resService.deleteResult(resultId);
     }

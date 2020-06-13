@@ -4,14 +4,12 @@ package com.project.results.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
+//@Getter
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Entity(name = "results")
 public class Results {
 
@@ -21,7 +19,7 @@ public class Results {
     private Long id;
 
     @Column(name = "cop_id")
-    private Long cop_id;
+    private String cop_id;
 
     @Column(name = "place_of_service")
     private String place_of_service;
@@ -36,33 +34,110 @@ public class Results {
     private String type_of_patrol;
 
     @Column(name = "legitimated")
-    private int legitimated;
+    private String legitimated;
 
     @Column(name = "checked_in_the_system")
-    private int checked_in_the_system;
+    private String checked_in_the_system;
 
     @Column(name = "quotations")
-    private int quotations;
+    private String quotations;
 
     @Column(name = "interventions")
-    private int interventions;
+    private String interventions;
 
     @Column(name = "noticions")
-    private int noticions;
+    private String notations;
 
     @Column(name = "mandates")
-    private int mandates;
+    private String mandates;
 
     @Column(name = "vehicle_controls")
-    private int vehicle_controls;
+    private String vehicle_controls;
 
     @Column(name = "arrested")
-    private int arrested;
+    private String arrested;
 
     @Column(name = "kilometers_traveled")
-    private int kilometers_traveled;
+    private String kilometers_traveled;
 
+    public Results() {
+    }
 
-    public Results(Long id, Long cop_id, String date, String time, String type_of_patrol, int legitimated, int checked_in_the_system, int quotations, int interventions, int noticions, int mandates, int vehicle_controls, int arrested, int kilometers_traveled) {
+    public Results(Long id, String cop_id, String place_of_service, String date, String time, String type_of_patrol, String legitimated, String checked_in_the_system, String quotations, String interventions, String notations, String mandates, String vehicle_controls, String arrested, String kilometers_traveled) {
+        this.id = id;
+        this.cop_id = cop_id;
+        this.place_of_service = place_of_service;
+        this.date = date;
+        this.time = time;
+        this.type_of_patrol = type_of_patrol;
+        this.legitimated = legitimated;
+        this.checked_in_the_system = checked_in_the_system;
+        this.quotations = quotations;
+        this.interventions = interventions;
+        this.notations = notations;
+        this.mandates = mandates;
+        this.vehicle_controls = vehicle_controls;
+        this.arrested = arrested;
+        this.kilometers_traveled = kilometers_traveled;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getCop_id() {
+        return cop_id;
+    }
+
+    public String getPlace_of_service() {
+        return place_of_service;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getType_of_patrol() {
+        return type_of_patrol;
+    }
+
+    public String getLegitimated() {
+        return legitimated;
+    }
+
+    public String getChecked_in_the_system() {
+        return checked_in_the_system;
+    }
+
+    public String getQuotations() {
+        return quotations;
+    }
+
+    public String getInterventions() {
+        return interventions;
+    }
+
+    public String getNotations() {
+        return notations;
+    }
+
+    public String getMandates() {
+        return mandates;
+    }
+
+    public String getVehicle_controls() {
+        return vehicle_controls;
+    }
+
+    public String getArrested() {
+        return arrested;
+    }
+
+    public String getKilometers_traveled() {
+        return kilometers_traveled;
     }
 }

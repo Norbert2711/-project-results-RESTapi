@@ -1,16 +1,8 @@
 package com.project.results.domain;
 
 
-import lombok.*;
-
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
 @Entity(name = "cops")
 public class Cop {
 
@@ -27,5 +19,31 @@ public class Cop {
 
     @Column(name = "login")
     private Long login;
+
+    public Cop(Long id, String name, String lastName, Long login) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.login = login;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Long getLogin() {
+        return login;
+    }
+
+    public Cop() {
+    }
 
 }
