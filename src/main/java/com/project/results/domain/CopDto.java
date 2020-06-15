@@ -1,21 +1,22 @@
 package com.project.results.domain;
 
-import lombok.*;
-
-
+import java.util.List;
 
 public class CopDto {
 
     private Long id;
     private String name;
     private String lastName;
-    private Long login;
+    private String login;
+    private List<ResultsDto> resultsDtoList;
 
-    public CopDto(Long id, String name, String lastName, Long login) {
+    public CopDto(Long id, String name, String lastName, String login, String resultsDtoList) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.login = login;
+        this.resultsDtoList = getResultsDtoList();
+
     }
 
     public Long getId() {
@@ -30,7 +31,11 @@ public class CopDto {
         return lastName;
     }
 
-    public Long getLogin() {
+    public String getLogin() {
         return login;
+    }
+
+    public List<ResultsDto> getResultsDtoList() {
+        return resultsDtoList;
     }
 }

@@ -18,13 +18,17 @@ public class Cop {
     private String lastName;
 
     @Column(name = "login")
-    private Long login;
+    private String login;
 
-    public Cop(Long id, String name, String lastName, Long login) {
+    @Column (name ="results")
+    private ResultsDto resultsDtoList;
+
+    public Cop(Long id, String name, String lastName, String login, ResultsDto resultsDtoList) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.login = login;
+        this.resultsDtoList = resultsDtoList;
     }
 
     public Long getId() {
@@ -39,9 +43,11 @@ public class Cop {
         return lastName;
     }
 
-    public Long getLogin() {
+    public String getLogin() {
         return login;
     }
+
+    public ResultsDto getResultsDtoList() { return resultsDtoList; }
 
     public Cop() {
     }

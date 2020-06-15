@@ -28,8 +28,8 @@ public class CopController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getCop")
-    public CopDto getCop(@RequestParam Long copId) throws CopNotFoundException, ResultNotFoundException {
-        return copMapper.mapToCopDto(resService.getCop(copId).orElseThrow(ResultNotFoundException::new));
+    public CopDto getCop(@RequestParam Long copId) throws CopNotFoundException {
+        return copMapper.mapToCopDto(resService.getCop(copId).orElseThrow(CopNotFoundException::new));
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateCop")
@@ -46,4 +46,5 @@ public class CopController {
     public void createCop(@RequestBody CopDto copDto) {
         resService.saveCop(copMapper.mapToCop(copDto));
     }
+
 }

@@ -2,6 +2,7 @@ package com.project.results.mapper;
 
 import com.project.results.domain.Cop;
 import com.project.results.domain.CopDto;
+import com.project.results.domain.ResultsDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,7 +16,8 @@ public class CopMapper {
                 copDto.getId(),
                 copDto.getName(),
                 copDto.getLastName(),
-                copDto.getLogin()
+                copDto.getLogin(),
+                (ResultsDto) copDto.getResultsDtoList()
         );
     }
 
@@ -24,7 +26,8 @@ public class CopMapper {
                 cop.getId(),
                 cop.getName(),
                 cop.getLastName(),
-                cop.getLogin()
+                cop.getLogin(),
+                cop.getResultsDtoList()
         );
     }
 
@@ -34,7 +37,8 @@ public class CopMapper {
                         c.getId(),
                         c.getName(),
                         c.getLastName(),
-                        c.getLogin()))
+                        c.getLogin(),
+                        c.getResultsDtoList()))
                 .collect(Collectors.toList());
 
     }
