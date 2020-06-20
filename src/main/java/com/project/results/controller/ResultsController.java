@@ -1,4 +1,4 @@
-package com.project.results.domain.controller;
+package com.project.results.controller;
 
 
 import com.project.results.domain.ResultsDto;

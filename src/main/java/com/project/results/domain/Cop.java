@@ -1,8 +1,14 @@
 package com.project.results.domain;
 
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import java.util.List;
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "cops")
 public class Cop {
 
@@ -20,16 +26,8 @@ public class Cop {
     @Column(name = "login")
     private String login;
 
-    @Column (name ="results")
-    private ResultsDto resultsDtoList;
-
-    public Cop(Long id, String name, String lastName, String login, ResultsDto resultsDtoList) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.login = login;
-        this.resultsDtoList = resultsDtoList;
-    }
+    @Column(name = "results")
+    private List<Results> resultsList;
 
     public Long getId() {
         return id;
@@ -47,9 +45,12 @@ public class Cop {
         return login;
     }
 
-    public ResultsDto getResultsDtoList() { return resultsDtoList; }
+    public List<Results> getResultsList() {
+        return resultsList;
+    }
 
-    public Cop() {
+    public void setResultsList(List<Results> resultsList) {
+        this.resultsList = resultsList;
     }
 
 }

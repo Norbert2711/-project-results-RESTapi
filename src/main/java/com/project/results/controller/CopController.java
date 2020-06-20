@@ -1,6 +1,6 @@
-package com.project.results.domain.controller;
+package com.project.results.controller;
 
-import com.project.results.domain.Cop;
+import com.project.results.controller.CopNotFoundException;
 import com.project.results.domain.CopDto;
 import com.project.results.mapper.CopMapper;
 import com.project.results.service.ResService;

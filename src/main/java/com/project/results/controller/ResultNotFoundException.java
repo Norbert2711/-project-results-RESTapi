@@ -1,4 +1,4 @@
-package com.project.results.domain.controller;
+package com.project.results.controller;
 
 public class ResultNotFoundException extends Exception {
 }
