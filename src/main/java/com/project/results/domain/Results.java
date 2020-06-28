@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 //@Getter
 //@AllArgsConstructor
@@ -17,9 +19,6 @@ public class Results {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "result_id")
     private Long id;
-
-    @Column(name = "cop_id")
-    private String cop_id;
 
     @Column(name = "place_of_service")
     private String place_of_service;
@@ -60,12 +59,12 @@ public class Results {
     @Column(name = "kilometers_traveled")
     private String kilometers_traveled;
 
-    public Results() {
-    }
+    @ManyToOne(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Cop cop;
 
-    public Results(Long id, String cop_id, String place_of_service, String date, String time, String type_of_patrol, String legitimated, String checked_in_the_system, String quotations, String interventions, String notations, String mandates, String vehicle_controls, String arrested, String kilometers_traveled) {
+    public Results(Long id, String place_of_service, String date, String time, String type_of_patrol, String legitimated, String checked_in_the_system, String quotations, String interventions, String notations, String mandates, String vehicle_controls, String arrested, String kilometers_traveled) {
         this.id = id;
-        this.cop_id = cop_id;
         this.place_of_service = place_of_service;
         this.date = date;
         this.time = time;
@@ -79,15 +78,16 @@ public class Results {
         this.vehicle_controls = vehicle_controls;
         this.arrested = arrested;
         this.kilometers_traveled = kilometers_traveled;
+
+    }
+
+    public Results() {
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getCop_id() {
-        return cop_id;
-    }
 
     public String getPlace_of_service() {
         return place_of_service;
@@ -139,5 +139,9 @@ public class Results {
 
     public String getKilometers_traveled() {
         return kilometers_traveled;
+    }
+
+    public Cop getCop() {
+        return cop;
     }
 }

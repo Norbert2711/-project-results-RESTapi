@@ -1,10 +1,18 @@
 package com.project.results.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
+//@Getter
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class ResultsDto {
 
     private Long id;
-    private String cop_id;
     private String place_of_service;
     private String date;
     private String time;
@@ -18,14 +26,11 @@ public class ResultsDto {
     private String vehicle_controls;
     private String arrested;
     private String kilometers_traveled;
+    private List<CopDto> copDtoList;
 
-
-    public ResultsDto() {
-    }
-
-    public ResultsDto(Long id, String cop_id, String place_of_service, String date, String time, String type_of_patrol, String legitimated, String checked_in_the_system, String quotations, String interventions, String notations, String mandates, String vehicle_controls, String arrested, String kilometers_traveled) {
+    public ResultsDto(Long id, String place_of_service, String date, String time, String type_of_patrol, String legitimated, String checked_in_the_system, String quotations, String interventions, String notations, String mandates, String vehicle_controls, String arrested, String kilometers_traveled) {
         this.id = id;
-        this.cop_id = cop_id;
+
         this.place_of_service = place_of_service;
         this.date = date;
         this.time = time;
@@ -39,15 +44,16 @@ public class ResultsDto {
         this.vehicle_controls = vehicle_controls;
         this.arrested = arrested;
         this.kilometers_traveled = kilometers_traveled;
+
+    }
+
+    public ResultsDto() {
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getCop_id() {
-        return cop_id;
-    }
 
     public String getPlace_of_service() {
         return place_of_service;
@@ -100,4 +106,13 @@ public class ResultsDto {
     public String getKilometers_traveled() {
         return kilometers_traveled;
     }
+
+    public List<CopDto> getCopDtoList() {
+        return copDtoList;
+    }
+
+    public void setCopDtoList(List<CopDto> copDtoList) {
+        this.copDtoList = copDtoList;
+    }
 }
+

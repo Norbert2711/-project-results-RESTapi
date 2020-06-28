@@ -2,13 +2,18 @@ package com.project.results.domain;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
+@Getter
+@Setter
 @Entity(name = "cops")
 public class Cop {
 
@@ -26,12 +31,20 @@ public class Cop {
     @Column(name = "login")
     private String login;
 
-    @Column(name = "results")
-    private List<Results> resultsList;
+    @OneToMany(mappedBy = "cop", fetch = FetchType.LAZY)
+    private List<Results> results = new ArrayList<>();
 
-    public Long getId() {
-        return id;
+    public Cop() {
     }
+
+    public Cop(Long id, String name, String lastName, String login) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.login = login;
+    }
+
+    public Long getId() { return id; }
 
     public String getName() {
         return name;
@@ -45,12 +58,7 @@ public class Cop {
         return login;
     }
 
-    public List<Results> getResultsList() {
-        return resultsList;
+    public List<Results> getResults() {
+        return new ArrayList<>(results);
     }
-
-    public void setResultsList(List<Results> resultsList) {
-        this.resultsList = resultsList;
-    }
-
 }

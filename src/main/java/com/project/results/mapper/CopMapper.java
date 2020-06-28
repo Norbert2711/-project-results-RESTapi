@@ -18,20 +18,20 @@ public class CopMapper {
                 copDto.getId(),
                 copDto.getName(),
                 copDto.getLastName(),
-                copDto.getLogin(),
-                copDto.getResultsDtoList()
+                copDto.getLogin()
 
         );
     }
 
     public CopDto mapToCopDto(final Cop cop) {
-        return new CopDto(
+        CopDto copDto = new CopDto(
                 cop.getId(),
                 cop.getName(),
                 cop.getLastName(),
-                cop.getLogin(),
-                cop.setResultsList()
+                cop.getLogin()
         );
+        copDto.setResultsDtoList(copDto.getResultsDtoList());
+        return copDto;
     }
 
     public List<CopDto> mapCopDtoToList(final List<Cop> copsList) {
@@ -40,49 +40,8 @@ public class CopMapper {
                         c.getId(),
                         c.getName(),
                         c.getLastName(),
-                        c.getLogin(),
-                        c.getResultsList()))
-                .collect(Collectors.toList());
-
-    }
-
-    public Results mapToResultsDto(final ResultsDto resultsDto) {
-        return new Results(
-                resultsDto.getId(),
-                resultsDto.getCop_id(),
-                resultsDto.getPlace_of_service(),
-                resultsDto.getDate(),
-                resultsDto.getTime(),
-                resultsDto.getType_of_patrol(),
-                resultsDto.getLegitimated(),
-                resultsDto.getChecked_in_the_system(),
-                resultsDto.getQuotations(),
-                resultsDto.getInterventions(),
-                resultsDto.getNotations(),
-                resultsDto.getMandates(),
-                resultsDto.getVehicle_controls(),
-                resultsDto.getArrested(),
-                resultsDto.getKilometers_traveled());
-
-    }
-
-    public ResultsDto mapToResults(final Results results) {
-        return new ResultsDto(
-                results.getId(),
-                results.getCop_id(),
-                results.getPlace_of_service(),
-                results.getDate(),
-                results.getTime(),
-                results.getType_of_patrol(),
-                results.getLegitimated(),
-                results.getChecked_in_the_system(),
-                results.getQuotations(),
-                results.getInterventions(),
-                results.getNotations(),
-                results.getMandates(),
-                results.getVehicle_controls(),
-                results.getArrested(),
-                results.getKilometers_traveled());
+                        c.getLogin())).
+                        collect(Collectors.toList());
 
     }
 }

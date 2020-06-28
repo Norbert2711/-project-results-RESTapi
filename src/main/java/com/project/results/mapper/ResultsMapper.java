@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 @Component
 public class ResultsMapper {
 
+
     public Results mapToResults(final ResultsDto resultsDto) {
         return new Results(
                 resultsDto.getId(),
-                resultsDto.getCop_id(),
                 resultsDto.getDate(),
                 resultsDto.getPlace_of_service(),
                 resultsDto.getTime(),
@@ -27,13 +27,13 @@ public class ResultsMapper {
                 resultsDto.getVehicle_controls(),
                 resultsDto.getArrested(),
                 resultsDto.getKilometers_traveled()
+
         );
     }
 
     public ResultsDto mapToResultsDto(final Results results) {
-        return new ResultsDto(
+        ResultsDto resultsDto = new ResultsDto(
                 results.getId(),
-                results.getCop_id(),
                 results.getPlace_of_service(),
                 results.getDate(),
                 results.getTime(),
@@ -47,14 +47,17 @@ public class ResultsMapper {
                 results.getVehicle_controls(),
                 results.getArrested(),
                 results.getKilometers_traveled()
+
         );
+
+        resultsDto.setCopDtoList(resultsDto.getCopDtoList());
+        return resultsDto;
     }
 
     public List<ResultsDto> mapResultsDtoList(final List<Results> resultsList) {
         return resultsList.stream()
                 .map(r -> new ResultsDto(
                         r.getId(),
-                        r.getCop_id(),
                         r.getPlace_of_service(),
                         r.getDate(),
                         r.getTime(),
