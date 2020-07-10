@@ -2,6 +2,8 @@ package com.project.results.domain;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "COMANDER")
 public class Commander {
@@ -23,6 +25,23 @@ public class Commander {
     @Column(name = "pluton_number")
     private Long pluton_number;
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "commander_id")
+    private List<Cop> cop = new ArrayList<>();
+
+    public Commander(Long id, Long login, String name, String lastName, Long pluton_number) {
+        this.id = id;
+        this.login = login;
+        this.name = name;
+        this.lastName = lastName;
+        this.pluton_number = pluton_number;
+
+    }
+
+    public Commander() {
+    }
+
+
     public Long getId() {
         return id;
     }
@@ -43,23 +62,11 @@ public class Commander {
         return pluton_number;
     }
 
-
-//    public Cop getCop() {
-//        return cop;
-//    }
-
-//    public void setCop(Cop cop) {
-//        this.cop = cop;
-//    }
-
-    public Commander(Long id, Long login, String name, String lastName, Long pluton_number) {
-        this.id = id;
-        this.login = login;
-        this.name = name;
-        this.lastName = lastName;
-        this.pluton_number = pluton_number;
+    public List<Cop> getCop() {
+        return new ArrayList<>(cop);
     }
 
-    public Commander() {
+    public void setCop(List<Cop> cop) {
+        this.cop = cop;
     }
 }

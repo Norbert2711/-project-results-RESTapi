@@ -46,7 +46,6 @@ public class ResultsDto {
         return id;
     }
 
-
     public String getPlace_of_service() {
         return place_of_service;
     }

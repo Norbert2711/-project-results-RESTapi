@@ -7,6 +7,7 @@ public class CommanderDto {
     private String name;
     private String lastName;
     private Long pluton_number;
+    private Cop cop;
 
     public CommanderDto(Long id, Long login, String name, String lastName, Long pluton_number) {
         this.id=id;
@@ -40,6 +41,12 @@ public class CommanderDto {
         return pluton_number;
     }
 
+    public Cop getCop() {
+        return cop;
+    }
 
+    public void setCop(Cop cop) {
+        this.cop = cop;
+    }
 }
 
