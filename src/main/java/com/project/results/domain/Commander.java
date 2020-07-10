@@ -10,7 +10,7 @@ public class Commander {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "commander_id")
+    @Column(name = "commanders_id")
     private Long id;
 
     @Column(name = "login")
@@ -26,7 +26,7 @@ public class Commander {
     private Long pluton_number;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "commander_id")
+    @JoinColumn(name = "command_id")
     private List<Cop> cop = new ArrayList<>();
 
     public Commander(Long id, Long login, String name, String lastName, Long pluton_number) {

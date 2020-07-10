@@ -3,9 +3,11 @@ package com.project.results.service;
 
 import com.project.results.domain.Commander;
 import com.project.results.domain.Cop;
+import com.project.results.domain.Pluton;
 import com.project.results.domain.Results;
 import com.project.results.repository.CommanderRepository;
 import com.project.results.repository.CopRepository;
+import com.project.results.repository.PlutonRepository;
 import com.project.results.repository.ResultsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,9 @@ public class ResService {
 
     @Autowired
     private CommanderRepository commanderRepository;
+
+    @Autowired
+    private PlutonRepository plutonRepository;
 
     //RESULTS
 
@@ -91,5 +96,14 @@ public class ResService {
         commanderRepository.deleteById(commander_id);
     }
 
+    //PLUTON  ---- ONLY *GET*
+
+    public List<Pluton> getAllInformationAboutPluton(){
+        return plutonRepository.findAll();
+    }
+
+    public Optional<Pluton> getPluton(final Long pluton_id){
+        return plutonRepository.findById(pluton_id);
+    }
 }
 

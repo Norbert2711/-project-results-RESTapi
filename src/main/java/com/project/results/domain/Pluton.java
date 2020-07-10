@@ -17,7 +17,7 @@ public class Pluton {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "pluton_id")
     private Long id;
 
     @Column(name = "name")
