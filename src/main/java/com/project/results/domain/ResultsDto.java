@@ -1,12 +1,5 @@
 package com.project.results.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.List;
-
 //@Getter
 //@AllArgsConstructor
 //@NoArgsConstructor
@@ -26,11 +19,10 @@ public class ResultsDto {
     private String vehicle_controls;
     private String arrested;
     private String kilometers_traveled;
-    private List<CopDto> copDtoList;
+    private CopDto copDto;
 
     public ResultsDto(Long id, String place_of_service, String date, String time, String type_of_patrol, String legitimated, String checked_in_the_system, String quotations, String interventions, String notations, String mandates, String vehicle_controls, String arrested, String kilometers_traveled) {
         this.id = id;
-
         this.place_of_service = place_of_service;
         this.date = date;
         this.time = time;
@@ -107,12 +99,11 @@ public class ResultsDto {
         return kilometers_traveled;
     }
 
-    public List<CopDto> getCopDtoList() {
-        return copDtoList;
+    public CopDto getCopDto() {
+        return copDto;
     }
 
-    public void setCopDtoList(List<CopDto> copDtoList) {
-        this.copDtoList = copDtoList;
+    public void setCopDto(CopDto copDto) {
+        this.copDto = copDto;
     }
 }
-

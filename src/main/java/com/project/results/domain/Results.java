@@ -1,13 +1,7 @@
 package com.project.results.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 //@Getter
 //@AllArgsConstructor
@@ -59,8 +53,7 @@ public class Results {
     @Column(name = "kilometers_traveled")
     private String kilometers_traveled;
 
-    @ManyToOne(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     private Cop cop;
 
     public Results(Long id, String place_of_service, String date, String time, String type_of_patrol, String legitimated, String checked_in_the_system, String quotations, String interventions, String notations, String mandates, String vehicle_controls, String arrested, String kilometers_traveled) {
@@ -87,7 +80,6 @@ public class Results {
     public Long getId() {
         return id;
     }
-
 
     public String getPlace_of_service() {
         return place_of_service;
@@ -144,4 +136,6 @@ public class Results {
     public Cop getCop() {
         return cop;
     }
+
+
 }

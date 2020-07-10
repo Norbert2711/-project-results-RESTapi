@@ -2,6 +2,7 @@ package com.project.results.mapper;
 
 import com.project.results.domain.Results;
 import com.project.results.domain.ResultsDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.stream.Collectors;
 @Component
 public class ResultsMapper {
 
+    @Autowired
+    private CopMapper copMapper;
 
     public Results mapToResults(final ResultsDto resultsDto) {
         return new Results(
@@ -49,29 +52,13 @@ public class ResultsMapper {
                 results.getKilometers_traveled()
 
         );
-
-        resultsDto.setCopDtoList(resultsDto.getCopDtoList());
+        resultsDto.setCopDto(copMapper.mapToCopDto(results.getCop()));
         return resultsDto;
     }
 
     public List<ResultsDto> mapResultsDtoList(final List<Results> resultsList) {
         return resultsList.stream()
-                .map(r -> new ResultsDto(
-                        r.getId(),
-                        r.getPlace_of_service(),
-                        r.getDate(),
-                        r.getTime(),
-                        r.getType_of_patrol(),
-                        r.getLegitimated(),
-                        r.getChecked_in_the_system(),
-                        r.getQuotations(),
-                        r.getInterventions(),
-                        r.getNotations(),
-                        r.getMandates(),
-                        r.getVehicle_controls(),
-                        r.getArrested(),
-                        r.getKilometers_traveled()))
+                .map(this::mapToResultsDto)
                 .collect(Collectors.toList());
-
     }
 }

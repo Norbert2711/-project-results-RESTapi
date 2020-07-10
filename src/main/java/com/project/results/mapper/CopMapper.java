@@ -1,9 +1,9 @@
 package com.project.results.mapper;
 
+import com.project.results.domain.Commander;
 import com.project.results.domain.Cop;
 import com.project.results.domain.CopDto;
-import com.project.results.domain.Results;
-import com.project.results.domain.ResultsDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -12,13 +12,16 @@ import java.util.stream.Collectors;
 @Component
 public class CopMapper {
 
+    @Autowired
+    private CommanderMapper commanderMapper;
 
     public Cop mapToCop(final CopDto copDto) {
         return new Cop(
                 copDto.getId(),
                 copDto.getName(),
                 copDto.getLastName(),
-                copDto.getLogin()
+                copDto.getLogin(),
+                copDto.getPluton_number()
 
         );
     }
@@ -28,20 +31,18 @@ public class CopMapper {
                 cop.getId(),
                 cop.getName(),
                 cop.getLastName(),
-                cop.getLogin()
+                cop.getLogin(),
+                cop.getPluton_number()
         );
-        copDto.setResultsDtoList(copDto.getResultsDtoList());
+        copDto.setCommanderDto(commanderMapper.mapToCommanderDto(cop.getCommander()));
         return copDto;
+
     }
 
     public List<CopDto> mapCopDtoToList(final List<Cop> copsList) {
         return copsList.stream()
-                .map(c -> new CopDto(
-                        c.getId(),
-                        c.getName(),
-                        c.getLastName(),
-                        c.getLogin())).
-                        collect(Collectors.toList());
+                .map(this::mapToCopDto)
+                .collect(Collectors.toList());
 
     }
 }

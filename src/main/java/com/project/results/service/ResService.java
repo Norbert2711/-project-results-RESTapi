@@ -1,8 +1,10 @@
 package com.project.results.service;
 
 
+import com.project.results.domain.Commander;
 import com.project.results.domain.Cop;
 import com.project.results.domain.Results;
+import com.project.results.repository.CommanderRepository;
 import com.project.results.repository.CopRepository;
 import com.project.results.repository.ResultsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class ResService {
 
     @Autowired
     private CopRepository copRepository;
+
+    @Autowired
+    private CommanderRepository commanderRepository;
 
     //RESULTS
 
@@ -64,4 +69,27 @@ public class ResService {
         copRepository.deleteById(copId);
     }
 
+    //COMMANDER
+
+    public List<Commander> getAllCommanders() {
+        return commanderRepository.findAll();
+    }
+
+    public Commander getCommanderById(final Long commander_id) {
+        return commanderRepository.findById(commander_id).orElse(null);
+    }
+
+    public Commander saveCommander(final Commander commander) {
+        return commanderRepository.save(commander);
+    }
+
+    public Optional<Commander> getCommander(final Long commander_id) {
+        return commanderRepository.findById(commander_id);
+    }
+
+    public void deleteCommander(final Long commander_id) {
+        commanderRepository.deleteById(commander_id);
+    }
+
 }
+

@@ -12,8 +12,8 @@ import java.util.List;
 
 //@AllArgsConstructor
 //@NoArgsConstructor
-@Getter
-@Setter
+//@Getter
+//@Setter
 @Entity(name = "cops")
 public class Cop {
 
@@ -31,17 +31,21 @@ public class Cop {
     @Column(name = "login")
     private String login;
 
-    @OneToMany(mappedBy = "cop", fetch = FetchType.LAZY)
-    private List<Results> results = new ArrayList<>();
+    @Column(name = "pluton_number")
+    private Long pluton_number;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    private Commander commander;
 
     public Cop() {
     }
 
-    public Cop(Long id, String name, String lastName, String login) {
+    public Cop(Long id, String name, String lastName, String login, Long pluton_number) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.login = login;
+        this.pluton_number = pluton_number;
     }
 
     public Long getId() { return id; }
@@ -58,7 +62,21 @@ public class Cop {
         return login;
     }
 
-    public List<Results> getResults() {
-        return new ArrayList<>(results);
+    public Long getPluton_number() { return pluton_number; }
+
+    public Commander getCommander() {
+        return commander;
     }
+
+    public void setCommander(Commander commander) {
+        this.commander = commander;
+    }
+
+    //    public List<Results> getResults() {
+//        return new ArrayList<>(results);
+//    }
+
+//    public void setResults(List<Results> results) {
+//        this.results = results;
+//    }
 }
