@@ -1,19 +1,10 @@
 package com.project.results.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@Getter
-//@Setter
 @Entity(name = "cops")
 public class Cop {
 
@@ -21,6 +12,9 @@ public class Cop {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
+
+    @Column(name = "position")
+    private String position;
 
     @Column(name = "name")
     private String name;
@@ -34,21 +28,29 @@ public class Cop {
     @Column(name = "pluton_number")
     private Long pluton_number;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    private Commander commander;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "cops_result_id")
+    private List<Results> resultsList = new ArrayList<>();
 
     public Cop() {
     }
 
-    public Cop(Long id, String name, String lastName, String login, Long pluton_number) {
+    public Cop(Long id, String position, String name, String lastName, String login, Long pluton_number) {
         this.id = id;
+        this.position = position;
         this.name = name;
         this.lastName = lastName;
         this.login = login;
         this.pluton_number = pluton_number;
     }
 
-    public Long getId() { return id; }
+    public Long getId() {
+        return id;
+    }
+
+    public String getPosition() {
+        return position;
+    }
 
     public String getName() {
         return name;
@@ -62,21 +64,15 @@ public class Cop {
         return login;
     }
 
-    public Long getPluton_number() { return pluton_number; }
-
-    public Commander getCommander() {
-        return commander;
+    public Long getPluton_number() {
+        return pluton_number;
     }
 
-    public void setCommander(Commander commander) {
-        this.commander = commander;
+    public List<Results> getResultsList() {
+        return new ArrayList<>(resultsList);
     }
 
-    //    public List<Results> getResults() {
-//        return new ArrayList<>(results);
-//    }
-
-//    public void setResults(List<Results> results) {
-//        this.results = results;
-//    }
+    public void setResultsList(List<Results> resultsList) {
+        this.resultsList = resultsList;
+    }
 }

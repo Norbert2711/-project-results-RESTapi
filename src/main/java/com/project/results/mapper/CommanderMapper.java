@@ -20,6 +20,7 @@ public class CommanderMapper {
     public Commander mapToCommander(CommanderDto commanderDto) {
         return new Commander(
                 commanderDto.getId(),
+                commanderDto.getPosition(),
                 commanderDto.getLogin(),
                 commanderDto.getLastName(),
                 commanderDto.getName(),
@@ -30,12 +31,13 @@ public class CommanderMapper {
     public CommanderDto mapToCommanderDto(Commander commander) {
         CommanderDto commanderDto = new CommanderDto(
                 commander.getId(),
+                commander.getPosition(),
                 commander.getLogin(),
                 commander.getName(),
                 commander.getLastName(),
                 commander.getPluton_number()
         );
-        commanderDto.setCop(copMapper.mapToCopDto(commander.getCop()));
+        commanderDto.setCopDtoList(copMapper.mapCopDtoToList(commander.getCop()));
         return commanderDto;
     }
 

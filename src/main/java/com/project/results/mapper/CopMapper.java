@@ -13,11 +13,12 @@ import java.util.stream.Collectors;
 public class CopMapper {
 
     @Autowired
-    private CommanderMapper commanderMapper;
+    private ResultsMapper resultsMapper;
 
     public Cop mapToCop(final CopDto copDto) {
         return new Cop(
                 copDto.getId(),
+                copDto.getPosition(),
                 copDto.getName(),
                 copDto.getLastName(),
                 copDto.getLogin(),
@@ -29,12 +30,13 @@ public class CopMapper {
     public CopDto mapToCopDto(final Cop cop) {
         CopDto copDto = new CopDto(
                 cop.getId(),
+                cop.getPosition(),
                 cop.getName(),
                 cop.getLastName(),
                 cop.getLogin(),
                 cop.getPluton_number()
         );
-        copDto.setCommanderDto(commanderMapper.mapToCommanderDto(cop.getCommander()));
+        copDto.setResultsDtoList(resultsMapper.mapResultsDtoList(cop.getResultsList()));
         return copDto;
 
     }

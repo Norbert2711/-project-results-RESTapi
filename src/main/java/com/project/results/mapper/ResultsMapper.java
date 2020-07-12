@@ -35,7 +35,7 @@ public class ResultsMapper {
     }
 
     public ResultsDto mapToResultsDto(final Results results) {
-        ResultsDto resultsDto = new ResultsDto(
+        return new ResultsDto(
                 results.getId(),
                 results.getPlace_of_service(),
                 results.getDate(),
@@ -52,8 +52,8 @@ public class ResultsMapper {
                 results.getKilometers_traveled()
 
         );
-        resultsDto.setCopDto(copMapper.mapToCopDto(results.getCop()));
-        return resultsDto;
+//        resultsDto.setCopDto(copMapper.mapToCopDto(results.getCop()));
+//        return resultsDto;
     }
 
     public List<ResultsDto> mapResultsDtoList(final List<Results> resultsList) {

@@ -19,7 +19,7 @@ public class ResultsDto {
     private String vehicle_controls;
     private String arrested;
     private String kilometers_traveled;
-    private CopDto copDto;
+   // private CopDto copDto;
 
     public ResultsDto(Long id, String place_of_service, String date, String time, String type_of_patrol, String legitimated, String checked_in_the_system, String quotations, String interventions, String notations, String mandates, String vehicle_controls, String arrested, String kilometers_traveled) {
         this.id = id;
@@ -98,11 +98,11 @@ public class ResultsDto {
         return kilometers_traveled;
     }
 
-    public CopDto getCopDto() {
-        return copDto;
-    }
-
-    public void setCopDto(CopDto copDto) {
-        this.copDto = copDto;
-    }
+//    public CopDto getCopDto() {
+//        return copDto;
+//    }
+//
+//    public void setCopDto(CopDto copDto) {
+//        this.copDto = copDto;
+//    }
 }

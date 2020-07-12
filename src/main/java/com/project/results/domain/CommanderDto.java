@@ -1,16 +1,20 @@
 package com.project.results.domain;
 
+import java.util.List;
+
 public class CommanderDto {
 
     private Long id;
+    private String position;
     private Long login;
     private String name;
     private String lastName;
     private Long pluton_number;
-    private Cop cop;
+    private List<CopDto> copDtoList;
 
-    public CommanderDto(Long id, Long login, String name, String lastName, Long pluton_number) {
+    public CommanderDto(Long id,String position, Long login, String name, String lastName, Long pluton_number) {
         this.id=id;
+        this.position = position;
         this.login = login;
         this.name = name;
         this.lastName = lastName;
@@ -24,6 +28,11 @@ public class CommanderDto {
     public Long getId() {
         return id;
     }
+
+    public String getPosition() {
+        return position;
+    }
+
 
     public Long getLogin() {
         return login;
@@ -41,12 +50,12 @@ public class CommanderDto {
         return pluton_number;
     }
 
-    public Cop getCop() {
-        return cop;
+    public List<CopDto> getCopDtoList() {
+        return copDtoList;
     }
 
-    public void setCop(Cop cop) {
-        this.cop = cop;
+    public void setCopDtoList(List<CopDto> copDtoList) {
+        this.copDtoList = copDtoList;
     }
 }
 

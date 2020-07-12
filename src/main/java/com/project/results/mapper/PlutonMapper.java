@@ -28,7 +28,7 @@ public class PlutonMapper {
     }
 
     public PlutonDto mapToPlutonDto(Pluton pluton) {
-        return  new PlutonDto(
+        return new PlutonDto(
                 pluton.getId(),
                 pluton.getName(),
                 pluton.getId_commander()

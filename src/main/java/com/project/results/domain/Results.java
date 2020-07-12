@@ -3,9 +3,6 @@ package com.project.results.domain;
 
 import javax.persistence.*;
 
-//@Getter
-//@AllArgsConstructor
-//@NoArgsConstructor
 @Entity(name = "results")
 public class Results {
 
@@ -53,8 +50,6 @@ public class Results {
     @Column(name = "kilometers_traveled")
     private String kilometers_traveled;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    private Cop cop;
 
     public Results(Long id, String place_of_service, String date, String time, String type_of_patrol, String legitimated, String checked_in_the_system, String quotations, String interventions, String notations, String mandates, String vehicle_controls, String arrested, String kilometers_traveled) {
         this.id = id;
@@ -132,10 +127,5 @@ public class Results {
     public String getKilometers_traveled() {
         return kilometers_traveled;
     }
-
-    public Cop getCop() {
-        return cop;
-    }
-
 
 }

@@ -13,6 +13,9 @@ public class Commander {
     @Column(name = "commanders_id")
     private Long id;
 
+    @Column(name = "position")
+    private String position;
+
     @Column(name = "login")
     private Long login;
 
@@ -29,8 +32,9 @@ public class Commander {
     @JoinColumn(name = "command_id")
     private List<Cop> cop = new ArrayList<>();
 
-    public Commander(Long id, Long login, String name, String lastName, Long pluton_number) {
+    public Commander(Long id,String position, Long login, String name, String lastName, Long pluton_number) {
         this.id = id;
+        this.position = position;
         this.login = login;
         this.name = name;
         this.lastName = lastName;
@@ -44,6 +48,10 @@ public class Commander {
 
     public Long getId() {
         return id;
+    }
+
+    public String getPosition() {
+        return position;
     }
 
     public Long getLogin() {

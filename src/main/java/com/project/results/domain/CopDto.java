@@ -1,11 +1,5 @@
 package com.project.results.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.util.ArrayList;
 import java.util.List;
 
 //@AllArgsConstructor
@@ -15,14 +9,19 @@ import java.util.List;
 public class CopDto {
 
     private Long id;
+    private String position;
     private String name;
     private String lastName;
     private String login;
     private Long pluton_number;
-    private CommanderDto commanderDto;
+    private List<ResultsDto> resultsDtoList;
 
     public Long getId() {
         return id;
+    }
+
+    public String getPosition() {
+        return position;
     }
 
     public String getName() {
@@ -37,28 +36,28 @@ public class CopDto {
         return login;
     }
 
-    public Long getPluton_number() { return pluton_number; }
+    public Long getPluton_number() {
+        return pluton_number;
+    }
+
+    public List<ResultsDto> getResultsDtoList() {
+        return resultsDtoList;
+    }
+
+    public void setResultsDtoList(List<ResultsDto> resultsDtoList) {
+        this.resultsDtoList = resultsDtoList;
+    }
 
     public CopDto() {
     }
 
-    public CopDto(Long id, String name, String lastName, String login, Long pluton_number) {
+    public CopDto(Long id, String position, String name, String lastName, String login, Long pluton_number) {
         this.id = id;
+        this.position = position;
         this.name = name;
         this.lastName = lastName;
         this.login = login;
         this.pluton_number = pluton_number;
     }
 
-    public CommanderDto getCommanderDto() {
-        return commanderDto;
-    }
-
-    public void setCommanderDto(CommanderDto commanderDto) {
-        this.commanderDto = commanderDto;
-    }
-
-// public void setResultsDtoList(List<ResultsDto> resultsDtoList) {
-       // this.resultsDtoList = resultsDtoList;
-    //}
 }
