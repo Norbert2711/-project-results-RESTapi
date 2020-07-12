@@ -22,17 +22,17 @@ public class PlutonMapper {
     public Pluton mapToPluton(PlutonDto plutonDto) {
         return new Pluton(
                 plutonDto.getId(),
-                plutonDto.getName(),
-                plutonDto.getId_commander()
+                plutonDto.getName()
         );
     }
 
     public PlutonDto mapToPlutonDto(Pluton pluton) {
-        return new PlutonDto(
+        PlutonDto plutonDto = new PlutonDto(
                 pluton.getId(),
-                pluton.getName(),
-                pluton.getId_commander()
+                pluton.getName()
         );
+        plutonDto.setCommanderDtoList(commanderMapper.mapCommanderDtoToList(pluton.getCommanderList()));
+        return plutonDto;
     }
 
     public List<PlutonDto> mapToPlutonDtoList (List<Pluton> plutonList){

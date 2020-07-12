@@ -1,10 +1,12 @@
 package com.project.results.domain;
 
+import java.util.List;
+
 public class PlutonDto {
 
     private Long id;
     private String name;
-    private Long id_commander;
+    private List<CommanderDto> commanderDtoList;
 
     public Long getId() {
         return id;
@@ -14,14 +16,17 @@ public class PlutonDto {
         return name;
     }
 
-    public Long getId_commander() {
-        return id_commander;
+    public List<CommanderDto> getCommanderDtoList() {
+        return commanderDtoList;
     }
 
-    public PlutonDto(Long id, String name, Long id_commander) {
+    public void setCommanderDtoList(List<CommanderDto> commanderDtoList) {
+        this.commanderDtoList = commanderDtoList;
+    }
+
+    public PlutonDto(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.id_commander = id_commander;
     }
 
     public PlutonDto() {

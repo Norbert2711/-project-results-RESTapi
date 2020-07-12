@@ -31,8 +31,8 @@ public class PlutonController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getPluton")
-    public PlutonDto getPluton(final Long pluton_id) throws PlutonThrowException {
-        return plutonMapper.mapToPlutonDto(resService.getPluton(pluton_id).orElseThrow(PlutonThrowException::new));
+    public PlutonDto getPluton(final Long plutonId) throws PlutonThrowException {
+        return plutonMapper.mapToPlutonDto(resService.getPluton(plutonId).orElseThrow(PlutonThrowException::new));
     }
 
 }

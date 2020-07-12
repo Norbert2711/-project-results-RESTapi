@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity(name = "PLUTON")
@@ -20,13 +21,14 @@ public class Pluton {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "id_comander")
-    private Long id_commander;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(name = "id_comander_in_pluton")
+    private List<Commander> commanderList;
 
-    public Pluton(long id, String name, long id_commander) {
+
+    public Pluton(long id, String name) {
         this.id=id;
         this.name=name;
-        this.id_commander=id_commander;
     }
 
     public Pluton() {
@@ -40,7 +42,11 @@ public class Pluton {
         return name;
     }
 
-    public Long getId_commander() {
-        return id_commander;
+    public List<Commander> getCommanderList() {
+        return commanderList;
+    }
+
+    public void setCommanderList(List<Commander> commanderList) {
+        this.commanderList = commanderList;
     }
 }
