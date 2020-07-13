@@ -50,8 +50,17 @@ public class Results {
     @Column(name = "kilometers_traveled")
     private String kilometers_traveled;
 
+    @Column(name = "rest_day")
+    private String rest_day;
 
-    public Results(Long id, String place_of_service, String date, String time, String type_of_patrol, String legitimated, String checked_in_the_system, String quotations, String interventions, String notations, String mandates, String vehicle_controls, String arrested, String kilometers_traveled) {
+    @Column(name = "holiday")
+    private String holiday;
+
+    @Column(name = "sick_leave")
+    private String sick_leave;
+
+    public Results(Long id, String place_of_service, String date, String time, String type_of_patrol, String legitimated, String checked_in_the_system, String quotations, String interventions, String notations,
+                      String mandates, String vehicle_controls, String arrested, String kilometers_traveled,String rest_day, String holiday, String sick_leave) {
         this.id = id;
         this.place_of_service = place_of_service;
         this.date = date;
@@ -66,6 +75,9 @@ public class Results {
         this.vehicle_controls = vehicle_controls;
         this.arrested = arrested;
         this.kilometers_traveled = kilometers_traveled;
+        this.rest_day=rest_day;
+        this.holiday = holiday;
+        this.sick_leave = sick_leave;
 
     }
 
@@ -128,4 +140,15 @@ public class Results {
         return kilometers_traveled;
     }
 
+    public String getRest_day() {
+        return rest_day;
+    }
+
+    public String getHoliday() {
+        return holiday;
+    }
+
+    public String getSick_leave() {
+        return sick_leave;
+    }
 }

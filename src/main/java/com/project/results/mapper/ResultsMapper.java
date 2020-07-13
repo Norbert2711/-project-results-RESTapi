@@ -29,7 +29,10 @@ public class ResultsMapper {
                 resultsDto.getMandates(),
                 resultsDto.getVehicle_controls(),
                 resultsDto.getArrested(),
-                resultsDto.getKilometers_traveled()
+                resultsDto.getKilometers_traveled(),
+                resultsDto.getRest_day(),
+                resultsDto.getHoliday(),
+                resultsDto.getSick_leave()
 
         );
     }
@@ -49,7 +52,10 @@ public class ResultsMapper {
                 results.getMandates(),
                 results.getVehicle_controls(),
                 results.getArrested(),
-                results.getKilometers_traveled()
+                results.getKilometers_traveled(),
+                results.getRest_day(),
+                results.getHoliday(),
+                results.getSick_leave()
 
         );
 //        resultsDto.setCopDto(copMapper.mapToCopDto(results.getCop()));
