@@ -27,6 +27,7 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'org.jetbrains:annotations:15.0'
 }
 
 test {
