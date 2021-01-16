@@ -7,7 +7,6 @@ public class aaaGenerator {
 
     public static String aGenerator(int numberOfAa) {
 
-
         String aaGener = "";
 
         for (int i = 0; i < numberOfAa; i++) {

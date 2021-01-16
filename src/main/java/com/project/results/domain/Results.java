@@ -1,6 +1,5 @@
 package com.project.results.domain;
 
-
 import javax.persistence.*;
 
 @Entity(name = "results")
