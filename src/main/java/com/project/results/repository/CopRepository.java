@@ -1,7 +1,6 @@
 package com.project.results.repository;
 
 import com.project.results.domain.Cop;
-import org.graalvm.compiler.nodes.calc.IntegerDivRemNode;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
