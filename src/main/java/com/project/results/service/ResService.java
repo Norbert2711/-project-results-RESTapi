@@ -18,16 +18,16 @@ import java.util.Optional;
 @Service
 public class ResService {
 
-
+    @Autowired
     private ResultsRepository resultsRepository;
 
-
+    @Autowired
     private CopRepository copRepository;
 
-
+    @Autowired
     private CommanderRepository commanderRepository;
 
-
+    @Autowired
     private PlutonRepository plutonRepository;
 
     //RESULTS
@@ -98,11 +98,11 @@ public class ResService {
 
     //PLUTON  ---- ONLY *GET*
 
-    public List<Pluton> getAllInformationAboutPluton(){
+    public List<Pluton> getAllInformationAboutPluton() {
         return plutonRepository.findAll();
     }
 
-    public Optional<Pluton> getPluton(final Long pluton_id){
+    public Optional<Pluton> getPluton(final Long pluton_id) {
         return plutonRepository.findById(pluton_id);
     }
 }
