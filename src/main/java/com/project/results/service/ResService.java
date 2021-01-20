@@ -18,16 +18,16 @@ import java.util.Optional;
 @Service
 public class ResService {
 
-    @Autowired
+
     private ResultsRepository resultsRepository;
 
-    @Autowired
+
     private CopRepository copRepository;
 
-    @Autowired
+
     private CommanderRepository commanderRepository;
 
-    @Autowired
+
     private PlutonRepository plutonRepository;
 
     //RESULTS
